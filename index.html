@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#age{
+    font-size:clamp(60px,12vw,180px);
+    font-weight:200;
+    letter-spacing:2px;
+    user-select:none;
+}
+</style>
+</head>
+<body>
+
+<div id="age"></div>
+
+<script>
+
+const birthDate = new Date("2005-08-26T00:00:00");
+
+function updateAge() {
+
+    const now = new Date();
+
+    const age =
+        (now - birthDate) /
+        (365.2425 * 24 * 60 * 60 * 1000);
+
+    document.getElementById("age").textContent =
+        age.toFixed(8);
+}
+
+updateAge();
+setInterval(updateAge, 10);
+
+</script>
+
+</body>
+</html>
